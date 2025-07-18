@@ -1,0 +1,17 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Reglas completamente permisivas para desarrollo
+    // IMPORTANTE: Solo usar en desarrollo, NO en producción
+    
+    // Permitir todo a usuarios autenticados
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+    
+    // Permitir lectura pública de usuarios (necesario para registro)
+    match /users/{userId} {
+      allow read: if true;
+    }
+  }
+} 

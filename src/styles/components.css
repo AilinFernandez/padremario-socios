@@ -1,0 +1,208 @@
+/* Estilos personalizados para el sistema de socios OPM */
+
+/* Header personalizado */
+.opm-header {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+  box-shadow: var(--shadow-lg);
+}
+
+.opm-header .navbar-brand {
+  font-weight: 700;
+  font-size: var(--font-size-xl);
+}
+
+/* Sidebar personalizado */
+.opm-sidebar {
+  background-color: var(--white);
+  border-right: 1px solid var(--light-gray);
+  min-height: 100vh;
+  box-shadow: var(--shadow);
+}
+
+.opm-sidebar .nav-link {
+  color: var(--dark-gray);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius);
+  margin: var(--spacing-xs) var(--spacing-sm);
+  transition: var(--transition);
+}
+
+.opm-sidebar .nav-link:hover,
+.opm-sidebar .nav-link.active {
+  background-color: var(--light-blue);
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.opm-sidebar .nav-link i {
+  margin-right: var(--spacing-sm);
+  width: 20px;
+}
+
+/* Cards personalizadas */
+.opm-card {
+  border: none;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.opm-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.opm-card .card-header {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+  color: var(--white) !important;
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0 !important;
+  font-weight: 600;
+}
+
+.opm-card .card-header h5,
+.opm-card .card-header h6,
+.opm-card .card-header .mb-0 {
+  color: var(--white) !important;
+}
+
+.opm-card .card-header .badge {
+  color: var(--white) !important;
+}
+
+/* Botones personalizados */
+.btn-opm-primary {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+  border: none;
+  color: var(--white);
+  font-weight: 600;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.btn-opm-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+  color: var(--white);
+}
+
+.btn-opm-secondary {
+  background-color: var(--light-gray);
+  border: 1px solid var(--gray);
+  color: var(--dark-gray);
+  font-weight: 600;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.btn-opm-secondary:hover {
+  background-color: var(--gray);
+  color: var(--white);
+}
+
+/* Tablas personalizadas */
+.opm-table {
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.opm-table thead th {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+  color: var(--white) !important;
+  border: none;
+  font-weight: 600;
+  padding: var(--spacing-md);
+}
+
+.opm-table tbody tr:hover {
+  background-color: var(--light-blue);
+}
+
+/* Formularios personalizados */
+.opm-form-control {
+  border: 2px solid var(--light-gray);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm) var(--spacing-md);
+  transition: var(--transition);
+}
+
+.opm-form-control:focus {
+  border-color: var(--secondary-blue);
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+}
+
+/* Estados de socio */
+.badge-activo {
+  background-color: var(--success);
+  color: var(--white);
+}
+
+.badge-inactivo {
+  background-color: var(--gray);
+  color: var(--white);
+}
+
+.badge-baja-temporal {
+  background-color: var(--warning);
+  color: var(--white);
+}
+
+/* Dashboard stats */
+.stats-card {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+  color: var(--white) !important;
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+}
+
+.stats-card .stats-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  color: var(--white) !important;
+}
+
+.stats-card .stats-label {
+  font-size: var(--font-size-lg);
+  opacity: 0.9;
+  color: var(--white) !important;
+}
+
+.stats-card .stats-icon {
+  color: var(--white) !important;
+}
+
+/* Loading spinner */
+.opm-spinner {
+  color: var(--primary-blue);
+}
+
+/* Modal personalizado */
+.opm-modal .modal-header {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+  color: var(--white) !important;
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+}
+
+.opm-modal .modal-title {
+  font-weight: 600;
+  color: var(--white) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .opm-sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    z-index: 1000;
+    transition: var(--transition);
+  }
+  
+  .opm-sidebar.show {
+    left: 0;
+  }
+} 

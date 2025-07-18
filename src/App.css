@@ -1,38 +1,282 @@
-.App {
-  text-align: center;
+/* Estilos generales de la aplicación */
+
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: var(--font-family);
+  background-color: var(--light-gray);
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.main-content {
+  flex: 1;
+  margin-top: 70px;
+  margin-left: 300px;
+  transition: margin-left 0.3s ease;
 }
 
-@keyframes App-logo-spin {
+/* Ajuste cuando sidebar está colapsado */
+.sidebar-collapsed .main-content {
+  margin-left: 70px;
+}
+
+/* Responsive para el contenido principal */
+@media (max-width: 991.98px) {
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+/* Estilos para scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-gray);
+}
+
+/* Estilos para elementos de Bootstrap personalizados */
+.btn {
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+}
+
+.form-control {
+  border-radius: var(--border-radius);
+  border: 2px solid var(--light-gray);
+  transition: var(--transition);
+}
+
+.form-control:focus {
+  border-color: var(--secondary-blue);
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+}
+
+.card {
+  border-radius: var(--border-radius-lg);
+  border: none;
+  box-shadow: var(--shadow);
+}
+
+.table {
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+}
+
+.badge {
+  border-radius: var(--border-radius);
+  font-weight: 500;
+}
+
+/* Animaciones globales */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(10px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Utilidades adicionales */
+.text-primary-opm {
+  color: var(--primary-blue) !important;
+}
+
+.text-secondary-opm {
+  color: var(--secondary-blue) !important;
+}
+
+.bg-primary-opm {
+  background-color: var(--primary-blue) !important;
+}
+
+.bg-secondary-opm {
+  background-color: var(--secondary-blue) !important;
+}
+
+.border-primary-opm {
+  border-color: var(--primary-blue) !important;
+}
+
+/* Estados de carga */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading-spinner {
+  color: var(--primary-blue);
+}
+
+/* Estilos para modales */
+.modal-content {
+  border-radius: var(--border-radius-lg);
+  border: none;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--light-gray);
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+}
+
+.modal-footer {
+  border-top: 1px solid var(--light-gray);
+  border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+}
+
+/* Estilos para tooltips */
+.tooltip {
+  font-size: var(--font-size-sm);
+}
+
+.tooltip-inner {
+  background-color: var(--dark-gray);
+  border-radius: var(--border-radius);
+}
+
+/* Estilos para popovers */
+.popover {
+  border-radius: var(--border-radius-lg);
+  border: none;
+  box-shadow: var(--shadow-lg);
+}
+
+.popover-header {
+  background-color: var(--light-gray);
+  border-bottom: 1px solid var(--light-gray);
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+}
+
+/* Estilos para alertas */
+.alert-primary {
+  background-color: var(--light-blue);
+  border-color: var(--secondary-blue);
+  color: var(--primary-blue);
+}
+
+.alert-success {
+  background-color: #d1fae5;
+  border-color: var(--success);
+  color: #065f46;
+}
+
+.alert-warning {
+  background-color: #fef3c7;
+  border-color: var(--warning);
+  color: #92400e;
+}
+
+.alert-danger {
+  background-color: #fee2e2;
+  border-color: var(--danger);
+  color: #991b1b;
+}
+
+/* Reglas adicionales para asegurar contraste */
+.card-header {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+  color: var(--white) !important;
+}
+
+.card-header h1,
+.card-header h2,
+.card-header h3,
+.card-header h4,
+.card-header h5,
+.card-header h6,
+.card-header p,
+.card-header span,
+.card-header div {
+  color: var(--white) !important;
+}
+
+.card-header .badge {
+  color: var(--white) !important;
+}
+
+.card-header i,
+.card-header svg {
+  color: var(--white) !important;
+}
+
+/* Asegurar que las tarjetas de estadísticas tengan texto blanco */
+.stats-card {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+  color: var(--white) !important;
+}
+
+.stats-card * {
+  color: var(--white) !important;
+}
+
+.stats-card .text-primary,
+.stats-card .text-success,
+.stats-card .text-info,
+.stats-card .text-warning {
+  color: var(--white) !important;
+}
+
+/* Asegurar que las tablas con headers oscuros tengan texto blanco */
+.table thead th {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+  color: var(--white) !important;
+}
+
+.table thead th * {
+  color: var(--white) !important;
+} 

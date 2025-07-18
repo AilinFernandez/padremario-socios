@@ -1,0 +1,99 @@
+.nuevo-socio-container {
+  padding: var(--spacing-xl);
+  margin-top: 70px;
+  margin-left: 280px;
+  min-height: calc(100vh - 70px);
+  background-color: var(--light-gray);
+}
+
+.nuevo-socio-title {
+  color: var(--primary-blue);
+  font-weight: 700;
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-sm);
+}
+
+.nuevo-socio-subtitle {
+  color: var(--gray);
+  font-size: var(--font-size-lg);
+  margin-bottom: 0;
+}
+
+.sectores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-sm);
+  max-height: 200px;
+  overflow-y: auto;
+  padding: var(--spacing-sm);
+  border: 2px solid var(--light-gray);
+  border-radius: var(--border-radius);
+}
+
+.sectores-grid.is-invalid {
+  border-color: var(--danger);
+}
+
+.etiquetas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--spacing-sm);
+  max-height: 150px;
+  overflow-y: auto;
+  padding: var(--spacing-sm);
+  border: 2px solid var(--light-gray);
+  border-radius: var(--border-radius);
+}
+
+.sector-checkbox,
+.etiqueta-checkbox {
+  margin-bottom: var(--spacing-xs);
+}
+
+.sector-checkbox .form-check-input:checked {
+  background-color: var(--primary-blue);
+  border-color: var(--primary-blue);
+}
+
+.etiqueta-checkbox .form-check-input:checked {
+  background-color: var(--secondary-blue);
+  border-color: var(--secondary-blue);
+}
+
+.bg-tercera-edad {
+  background-color: #7c3aed !important; /* violeta */
+  color: #fff !important;
+}
+
+.bg-cultural {
+  background-color: #e83e8c !important; /* rosa */
+  color: #fff !important;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .nuevo-socio-container {
+    margin-left: 0;
+    padding: var(--spacing-md);
+  }
+  
+  .d-flex.justify-content-between {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .nuevo-socio-container {
+    padding: var(--spacing-sm);
+  }
+  
+  .nuevo-socio-title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .sectores-grid,
+  .etiquetas-grid {
+    grid-template-columns: 1fr;
+  }
+} 

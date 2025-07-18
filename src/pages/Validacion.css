@@ -1,0 +1,145 @@
+.validacion-container {
+  padding: var(--spacing-xl);
+  margin-top: 70px;
+  margin-left: 280px;
+  min-height: calc(100vh - 70px);
+  background-color: var(--light-gray);
+}
+
+.validacion-title {
+  color: var(--primary-blue);
+  font-weight: 700;
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-sm);
+}
+
+.validacion-subtitle {
+  color: var(--gray);
+  font-size: var(--font-size-lg);
+  margin-bottom: 0;
+}
+
+/* Resultado de búsqueda */
+.resultado-card {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.socio-info {
+  padding: var(--spacing-md);
+  background-color: var(--light-gray);
+  border-radius: var(--border-radius-lg);
+  height: 100%;
+}
+
+.socio-nombre {
+  color: var(--primary-blue);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-xl);
+}
+
+.socio-dni,
+.socio-estado,
+.socio-fecha,
+.socio-ultima-actividad {
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-base);
+}
+
+.socio-dni strong,
+.socio-estado strong,
+.socio-fecha strong,
+.socio-ultima-actividad strong {
+  color: var(--dark-gray);
+  min-width: 120px;
+  display: inline-block;
+}
+
+.socio-detalles {
+  padding: var(--spacing-md);
+}
+
+.socio-detalles h6 {
+  color: var(--primary-blue);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--light-blue);
+  padding-bottom: var(--spacing-xs);
+}
+
+.sectores-list,
+.etiquetas-list {
+  margin-bottom: var(--spacing-md);
+}
+
+.socio-barrio,
+.socio-origen {
+  background-color: var(--light-gray);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius);
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+/* Beneficios */
+.beneficios-section {
+  border-top: 1px solid var(--light-gray);
+  padding-top: var(--spacing-lg);
+}
+
+.beneficios-section h6 {
+  color: var(--primary-blue);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+}
+
+.beneficios-list .alert {
+  border-radius: var(--border-radius);
+  font-weight: 500;
+}
+
+/* Socio no encontrado */
+.socio-no-encontrado-icon {
+  font-size: 4rem;
+  color: var(--gray);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .validacion-container {
+    margin-left: 0;
+    padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .validacion-container {
+    padding: var(--spacing-sm);
+  }
+  
+  .validacion-title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .socio-nombre {
+    font-size: var(--font-size-lg);
+  }
+  
+  .socio-info,
+  .socio-detalles {
+    padding: var(--spacing-sm);
+  }
+} 
