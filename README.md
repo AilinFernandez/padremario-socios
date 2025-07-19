@@ -1,46 +1,143 @@
-# Getting Started with Create React App
+# 🏢 Sistema de Gestión de Socios OPM
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📋 Descripción General
 
-## Available Scripts
+Sistema web para la gestión integral de socios de la Obra del Padre Mario (OPM). Permite administrar socios, generar reportes, validar membresías y mantener un registro de auditoría completo.
 
-In the project directory, you can run:
+## 🌐 **Acceso al Sistema**
 
-### `npm start`
+**URL de Producción:** [Tu URL de AWS Amplify]
+**Estado:** 🟡 **VERSIÓN DE PRUEBA** - En desarrollo activo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## ⚠️ **Notas Importantes**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### **Estado Actual:**
+- ✅ **Funcionalidades principales operativas**
+- 🟡 **Algunas características en desarrollo**
+- ❌ **Sistema de emails pendiente de implementación**
 
-### `npm test`
+### **Limitaciones Actuales:**
+- El sistema de comunicación por email está en desarrollo
+- Algunas funcionalidades avanzadas pueden tener bugs menores
+- **NO usar para datos críticos de producción** hasta versión final
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 👥 **Usuarios de Prueba Pre-cargados**
 
-### `npm run build`
+### **Super Administrador:**
+- **Email:** `admin@opm.org`
+- **Contraseña:** `admin123`
+- **Rol:** Super Administrador
+- **Acceso:** Completo a todas las funcionalidades
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **Administrador:**
+- **Email:** `gerente@opm.org`
+- **Contraseña:** `gerente123`
+- **Rol:** Administrador
+- **Acceso:** Gestión de socios y reportes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **Usuario Regular:**
+- **Email:** `usuario@opm.org`
+- **Contraseña:** `usuario123`
+- **Rol:** Usuario
+- **Acceso:** Consulta y validación
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🔐 **Sistema de Roles y Permisos**
 
-### `npm run eject`
+### **Super Administrador:**
+- ✅ Gestión completa de socios
+- ✅ Gestión de usuarios y roles
+- ✅ Reportes y estadísticas
+- ✅ Auditoría del sistema
+- ✅ Configuración del sistema
+- ✅ Comunicaciones
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### **Administrador:**
+- ✅ Gestión de socios
+- ✅ Reportes y estadísticas
+- ✅ Validación rápida
+- ✅ Auditoría (limitada)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### **Usuario:**
+- ✅ Consulta de socios
+- ✅ Validación rápida
+- ✅ Reportes básicos
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🚀 **Funcionalidades Principales**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### **✅ Operativas:**
+- **Gestión de Socios:** Crear, editar, eliminar y consultar socios
+- **Validación Rápida:** Buscar socios por DNI
+- **Reportes:** Generar reportes en Excel y PDF
+- **Auditoría:** Registro completo de actividades
+- **Sistema de Usuarios:** Gestión de roles y permisos
+- **Dashboard:** Estadísticas en tiempo real
 
-## Learn More
+### **🟡 En Desarrollo:**
+- **Comunicaciones:** Sistema de emails a socios
+- **Notificaciones:** Alertas automáticas
+- **Integración WhatsApp:** Envío de mensajes
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **📋 Pendientes:**
+- **Pagos:** Gestión de cuotas y pagos
+- **Eventos:** Gestión de eventos y asistencia
+- **Documentos:** Subida y gestión de documentos
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🛠️ **Tecnologías Utilizadas**
+
+- **Frontend:** React.js, Bootstrap 5
+- **Backend:** Firebase (Firestore, Authentication)
+- **Hosting:** AWS Amplify
+- **Base de Datos:** Firestore (NoSQL)
+
+## 📱 **Compatibilidad**
+
+- ✅ **Desktop:** Chrome, Firefox, Safari, Edge
+- ✅ **Tablet:** iPad, Android tablets
+- ✅ **Móvil:** iPhone, Android (responsive design)
+
+## 🔧 **Instalación Local (Desarrolladores)**
+
+```bash
+# Clonar repositorio
+git clone https://github.com/AilinFernandez/padremario-socios.git
+
+# Instalar dependencias
+cd padremario-socios
+npm install
+
+# Configurar Firebase
+# Crear archivo .env con las credenciales
+
+# Ejecutar en desarrollo
+npm start
+```
+
+## 📞 **Soporte y Contacto**
+
+- **Desarrollador:** [Tu información de contacto]
+- **Reportar Bugs:** [Enlace a issues de GitHub]
+- **Solicitar Funcionalidades:** [Enlace a issues de GitHub]
+
+## 📄 **Documentación Adicional**
+
+- [Manual de Usuario](./docs/MANUAL_USUARIO.md)
+- [Guía de Administración](./docs/GUIA_ADMINISTRACION.md)
+- [Notas de Desarrollo](./docs/NOTAS_DESARROLLO.md)
+
+## 🔄 **Historial de Versiones**
+
+### **v1.0.0 (Actual)**
+- ✅ Sistema base de gestión de socios
+- ✅ Autenticación y autorización
+- ✅ Reportes básicos
+- ✅ Auditoría del sistema
+- 🟡 Comunicaciones en desarrollo
+
+### **Próximas Versiones**
+- v1.1.0: Sistema de comunicaciones por email
+- v1.2.0: Integración WhatsApp
+- v2.0.0: Gestión de pagos y cuotas
+
+---
+
+**⚠️ IMPORTANTE:** Este sistema está en fase de desarrollo. No usar para datos críticos de producción hasta la versión final.

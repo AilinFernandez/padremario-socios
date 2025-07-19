@@ -1,3 +1,5 @@
+/* Estilos para el Dashboard - Actualizado con tamaños consistentes */
+
 .dashboard-container {
   padding: var(--spacing-xl);
   margin-top: 70px;
@@ -19,7 +21,7 @@
   margin-bottom: 0;
 }
 
-/* Tarjetas de estadísticas */
+/* Tarjetas de estadísticas - Tamaños consistentes con Auditoría */
 .stats-card {
   background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
   color: var(--white) !important;
@@ -27,34 +29,40 @@
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow);
   transition: var(--transition);
-  height: 100%;
+  height: auto;
+  min-height: 45px;
 }
 
 .stats-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
 }
 
+.stats-card .card-body {
+  padding: 0.25rem;
+}
+
 .stats-icon {
-  font-size: 2.5rem;
-  margin-bottom: var(--spacing-md);
+  font-size: 0.8rem;
+  margin-bottom: 0.05rem;
   opacity: 0.8;
   color: var(--white) !important;
 }
 
 .stats-number {
-  font-size: 3rem;
+  font-size: 1rem;
   font-weight: 700;
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: 0.05rem;
   line-height: 1;
   color: var(--white) !important;
 }
 
 .stats-label {
-  font-size: var(--font-size-lg);
+  font-size: 0.6rem;
   opacity: 0.9;
   font-weight: 500;
   color: var(--white) !important;
+  line-height: 1;
 }
 
 /* Estadísticas por sector */
@@ -106,11 +114,15 @@
   }
   
   .stats-number {
-    font-size: 2.5rem;
+    font-size: 0.9rem;
   }
   
   .stats-icon {
-    font-size: 2rem;
+    font-size: 0.7rem;
+  }
+  
+  .stats-label {
+    font-size: 0.55rem;
   }
 }
 
@@ -123,11 +135,23 @@
     font-size: var(--font-size-xl);
   }
   
+  .stats-card {
+    min-height: 40px;
+  }
+  
+  .stats-card .card-body {
+    padding: 0.2rem;
+  }
+  
   .stats-number {
-    font-size: 2rem;
+    font-size: 0.8rem;
   }
   
   .stats-icon {
-    font-size: 1.5rem;
+    font-size: 0.6rem;
+  }
+  
+  .stats-label {
+    font-size: 0.5rem;
   }
 } 

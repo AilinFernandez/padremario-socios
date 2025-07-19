@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Navbar, Nav, Container, Button, Dropdown, Badge } from 'react-bootstrap';
 import { useAuth } from '../../context/AuthContext';
 import { useAudit } from '../../hooks/useAudit';
@@ -7,8 +7,6 @@ import {
   FaUser, 
   FaSignOutAlt, 
   FaBars, 
-  FaBell,
-  FaSearch,
   FaUserShield,
   FaCrown
 } from 'react-icons/fa';
@@ -18,7 +16,6 @@ const Header = ({ toggleSidebar }) => {
   const { currentUser, userData, logout, isSuperAdmin, isAdmin } = useAuth();
   const { logLogout } = useAudit();
   const navigate = useNavigate();
-  const [showNotifications, setShowNotifications] = useState(false);
 
   const handleLogout = async () => {
     try {
@@ -73,10 +70,11 @@ const Header = ({ toggleSidebar }) => {
         {/* Botón para mostrar/ocultar sidebar en móvil */}
         <Button
           variant="link"
-          className="d-lg-none text-white border-0"
+          className="d-lg-none text-white border-0 p-2"
           onClick={toggleSidebar}
+          aria-label="Toggle sidebar"
         >
-          <FaBars />
+          <FaBars size={20} />
         </Button>
 
         {/* Logo y título */}
@@ -90,87 +88,54 @@ const Header = ({ toggleSidebar }) => {
               e.target.style.display = 'none';
             }}
           />
-          Sistema de Socios OPM
+          <span className="d-none d-sm-inline">Sistema de Socios OPM</span>
+          <span className="d-inline d-sm-none">OPM</span>
         </Navbar.Brand>
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
-            {/* Notificaciones */}
-            <Nav.Link 
-              className="text-white position-relative"
-              onClick={() => setShowNotifications(!showNotifications)}
-            >
-              <FaBell />
-              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                3
-              </span>
-            </Nav.Link>
+        {/* Dropdown del usuario */}
+        <Dropdown align="end" className="ms-auto">
+          <Dropdown.Toggle 
+            variant="link" 
+            className="text-white text-decoration-none d-flex align-items-center p-2"
+          >
+            <div className="user-avatar me-2">
+              {getRoleIcon()}
+            </div>
+            <div className="user-info d-none d-md-block">
+              <div className="user-name">
+                {userData ? `${userData.nombre} ${userData.apellido}` : currentUser?.email}
+              </div>
+              {getRoleBadge()}
+            </div>
+          </Dropdown.Toggle>
 
-            {/* Dropdown del usuario */}
-            <Dropdown align="end">
-              <Dropdown.Toggle 
-                variant="link" 
-                className="text-white text-decoration-none d-flex align-items-center"
-              >
-                <div className="user-avatar me-2">
-                  {getRoleIcon()}
-                </div>
-                <div className="user-info d-none d-md-block">
-                  <div className="user-name">
-                    {userData ? `${userData.nombre} ${userData.apellido}` : currentUser?.email}
+          <Dropdown.Menu>
+            <Dropdown.Header>
+              <div className="d-flex align-items-center">
+                {getRoleIcon()}
+                <div className="ms-2">
+                  <div className="fw-bold">
+                    {userData ? `${userData.nombre} ${userData.apellido}` : 'Usuario'}
                   </div>
-                  {getRoleBadge()}
+                  <small className="text-muted">
+                    {userData?.email || currentUser?.email}
+                  </small>
                 </div>
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Header>
-                  <div className="d-flex align-items-center">
-                    {getRoleIcon()}
-                    <div className="ms-2">
-                      <div className="fw-bold">
-                        {userData ? `${userData.nombre} ${userData.apellido}` : 'Usuario'}
-                      </div>
-                      <small className="text-muted">
-                        {userData?.email || currentUser?.email}
-                      </small>
-                    </div>
-                  </div>
-                </Dropdown.Header>
-                <Dropdown.Divider />
-                <Dropdown.Item onClick={handleProfile}>
-                  <FaUser className="me-2" />
-                  Mi Perfil
-                </Dropdown.Item>
-                <Dropdown.Divider />
-                <Dropdown.Item onClick={handleLogout} className="text-danger">
-                  <FaSignOutAlt className="me-2" />
-                  Cerrar Sesión
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </Nav>
-        </Navbar.Collapse>
+              </div>
+            </Dropdown.Header>
+            <Dropdown.Divider />
+            <Dropdown.Item onClick={handleProfile}>
+              <FaUser className="me-2" />
+              Mi Perfil
+            </Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item onClick={handleLogout} className="text-danger">
+              <FaSignOutAlt className="me-2" />
+              Cerrar Sesión
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       </Container>
-
-      {/* Panel de notificaciones */}
-      {showNotifications && (
-        <div className="notifications-panel">
-          <div className="notification-item">
-            <strong>Nuevo socio registrado</strong>
-            <small>María González se registró en Educación</small>
-          </div>
-          <div className="notification-item">
-            <strong>Actividad actualizada</strong>
-            <small>Taller de memoria reprogramado</small>
-          </div>
-          <div className="notification-item">
-            <strong>Reporte disponible</strong>
-            <small>Estadísticas mensuales listas</small>
-          </div>
-        </div>
-      )}
     </Navbar>
   );
 };

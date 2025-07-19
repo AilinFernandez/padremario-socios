@@ -1,3 +1,5 @@
+/* Estilos para Reportes - Actualizado con tamaños consistentes */
+
 .reportes-container {
   padding: var(--spacing-xl);
   margin-top: 70px;
@@ -16,7 +18,7 @@
 .reportes-subtitle {
   color: var(--gray);
   font-size: var(--font-size-lg);
-  margin-bottom: 0;
+  margin-bottom: var(--spacing-lg);
 }
 
 /* Estadísticas por sector */
@@ -94,12 +96,14 @@
   width: 100%;
 }
 
-/* Estadísticas mejoradas */
+/* Estadísticas mejoradas - Tamaños consistentes con Auditoría */
 .stats-card {
   border: none;
   border-radius: var(--border-radius-lg);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: auto;
+  min-height: 45px;
 }
 
 .stats-card:hover {
@@ -107,23 +111,28 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
+.stats-card .card-body {
+  padding: 0.25rem;
+}
+
 .stats-icon {
-  font-size: 2rem;
+  font-size: 0.8rem;
   color: var(--primary-blue);
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: 0.05rem;
 }
 
 .stats-number {
-  font-size: 2.5rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--dark-gray);
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: 0.05rem;
 }
 
 .stats-label {
   color: var(--gray);
-  font-size: var(--font-size-sm);
+  font-size: 0.6rem;
   font-weight: 500;
+  line-height: 1;
 }
 
 /* Botones de exportación */
@@ -186,7 +195,15 @@
   }
   
   .stats-number {
-    font-size: 2rem;
+    font-size: 0.9rem;
+  }
+  
+  .stats-icon {
+    font-size: 0.7rem;
+  }
+  
+  .stats-label {
+    font-size: 0.55rem;
   }
 }
 
@@ -210,6 +227,23 @@
   
   .stats-card {
     margin-bottom: var(--spacing-md);
+    min-height: 40px;
+  }
+  
+  .stats-card .card-body {
+    padding: 0.2rem;
+  }
+  
+  .stats-number {
+    font-size: 0.8rem;
+  }
+  
+  .stats-icon {
+    font-size: 0.6rem;
+  }
+  
+  .stats-label {
+    font-size: 0.5rem;
   }
   
   .chart-container {

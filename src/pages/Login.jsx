@@ -67,9 +67,6 @@ const Login = () => {
                   />
                 </div>
                 <h2 className="login-title">Sistema de Socios OPM</h2>
-                <p className="login-subtitle">
-                  Gestión integral de socios de la Obra del Padre Mario
-                </p>
               </div>
 
               {/* Formulario de login */}
@@ -158,13 +155,6 @@ const Login = () => {
                   <a href="/login" className="link-primary">Iniciar sesión</a>
                 </div>
               )}
-
-              {/* Información adicional */}
-              <div className="text-center mt-4">
-                <small className="text-muted">
-                  Sistema de gestión integral para la Obra del Padre Mario
-                </small>
-              </div>
             </Card.Body>
           </Card>
         </div>
