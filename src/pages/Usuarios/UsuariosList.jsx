@@ -243,7 +243,7 @@ const UsuariosList = () => {
   };
 
   return (
-    <Container fluid className="usuarios-container">
+    <Container fluid className="usuarios-list-container">
       <Row className="mb-4">
         <Col>
           <h1 className="usuarios-title">

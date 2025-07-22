@@ -4,11 +4,33 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: var(--font-family);
-  background-color: var(--light-gray);
-  margin: 0;
-  padding: 0;
+body, html {
+  overflow-x: hidden;
+}
+
+.dashboard-container,
+.reportes-container,
+.socios-list-container,
+.nuevo-socio-container,
+.comunicaciones-container,
+.socio-detail-container,
+.validacion-container {
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+/* Aplicar max-width solo en desktop */
+@media (min-width: 992px) {
+  .dashboard-container,
+  .reportes-container,
+  .socios-list-container,
+  .nuevo-socio-container,
+  .comunicaciones-container,
+  .socio-detail-container,
+  .validacion-container {
+    max-width: calc(100vw - 300px);
+  }
 }
 
 .app-container {
@@ -19,7 +41,6 @@ body {
 
 .main-content {
   flex: 1;
-  margin-top: 70px;
   margin-left: 300px;
   transition: margin-left 0.3s ease;
 }

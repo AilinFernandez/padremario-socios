@@ -155,7 +155,7 @@ const SociosList = () => {
   };
 
   return (
-    <Container fluid className="socios-list-container">
+    <div className="socios-list-container">
       <Row className="mb-4">
         <Col>
           <div className="d-flex justify-content-between align-items-center">
@@ -435,7 +435,7 @@ const SociosList = () => {
           </Card>
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 };
 

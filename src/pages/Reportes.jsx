@@ -252,7 +252,7 @@ const Reportes = () => {
   } : null;
 
   return (
-    <Container fluid className="reportes-container">
+    <div className="reportes-container">
       <Row className="mb-4">
         <Col>
           <h1 className="reportes-title">
@@ -262,6 +262,15 @@ const Reportes = () => {
           <p className="reportes-subtitle">
             Generar reportes y exportar datos de socios
           </p>
+        </Col>
+      </Row>
+
+      <Row className="mb-3">
+        <Col>
+          <div className="alert alert-info d-flex align-items-center" style={{ borderRadius: '12px', background: 'linear-gradient(90deg, #e3f0ff 0%, #b3d8fd 100%)', color: '#1b4b7a', fontWeight: 500, fontSize: 17 }}>
+            <span style={{ fontSize: 22, marginRight: 12 }}>⚠️</span>
+            Esta sección de reportes se encuentra en versión de prueba. Algunas funcionalidades pueden no estar disponibles o estar sujetas a cambios.
+          </div>
         </Col>
       </Row>
 
@@ -620,7 +629,7 @@ const Reportes = () => {
           </Tabs>
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 };
 

@@ -85,16 +85,25 @@ const Dashboard = () => {
   };
 
   return (
-    <Container fluid className="dashboard-container">
+    <div className="dashboard-container">
       <Row className="mb-4">
         <Col>
           <h1 className="dashboard-title">
             <FaChartLine className="me-2" />
-            Dashboard
+            Resumen
           </h1>
           <p className="dashboard-subtitle">
             Resumen general del sistema de gestión de socios
           </p>
+        </Col>
+      </Row>
+
+      <Row className="mb-3">
+        <Col>
+          <div className="alert alert-info d-flex align-items-center" style={{ borderRadius: '12px', background: 'linear-gradient(90deg, #e3f0ff 0%, #b3d8fd 100%)', color: '#1b4b7a', fontWeight: 500, fontSize: 17 }}>
+            <span style={{ fontSize: 22, marginRight: 12 }}>⚠️</span>
+            Este sistema se encuentra en desarrollo. Algunas funcionalidades pueden no estar disponibles, estar en construcción o presentar errores.
+          </div>
         </Col>
       </Row>
 
@@ -293,7 +302,7 @@ const Dashboard = () => {
           </Card>
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 };
 

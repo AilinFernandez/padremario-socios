@@ -170,7 +170,7 @@ const Comunicaciones = () => {
   };
 
   return (
-    <Container fluid className="comunicaciones-container">
+    <div className="comunicaciones-container">
       <Row className="mb-4">
         <Col>
           <h1 className="comunicaciones-title">
@@ -178,7 +178,7 @@ const Comunicaciones = () => {
             Comunicaciones
           </h1>
           <p className="comunicaciones-subtitle">
-            Gestiona las comunicaciones con los socios
+            Gestionar y enviar comunicaciones a los socios
           </p>
         </Col>
         <Col xs="auto">
@@ -533,7 +533,7 @@ const Comunicaciones = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-    </Container>
+    </div>
   );
 };
 

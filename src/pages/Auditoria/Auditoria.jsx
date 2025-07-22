@@ -320,11 +320,11 @@ const Auditoria = () => {
   }
 
   return (
-    <Container fluid className="mt-4">
+    <Container fluid className="audit-container">
       <Row>
         <Col>
           <div className="d-flex justify-content-between align-items-center mb-4">
-            <h2 className="mb-0">
+            <h2 className="audit-title mb-0">
               <FaEye className="me-2" />
               Auditoría del Sistema
             </h2>

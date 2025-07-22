@@ -1,7 +1,5 @@
 .socio-detail-container {
-  padding: var(--spacing-xl);
-  margin-top: 70px;
-  margin-left: 280px;
+  padding: var(--spacing-md) var(--spacing-xl) var(--spacing-xl) var(--spacing-md);
   min-height: calc(100vh - 70px);
   background-color: var(--light-gray);
 }
@@ -11,6 +9,7 @@
   font-weight: 700;
   font-size: var(--font-size-2xl);
   margin-bottom: var(--spacing-sm);
+  margin-top: var(--spacing-md);
 }
 
 .socio-detail-subtitle {

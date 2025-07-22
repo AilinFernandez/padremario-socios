@@ -124,10 +124,10 @@ const Header = ({ toggleSidebar }) => {
               </div>
             </Dropdown.Header>
             <Dropdown.Divider />
-            <Dropdown.Item onClick={handleProfile}>
+            {/* <Dropdown.Item onClick={handleProfile}>
               <FaUser className="me-2" />
               Mi Perfil
-            </Dropdown.Item>
+            </Dropdown.Item> */}
             <Dropdown.Divider />
             <Dropdown.Item onClick={handleLogout} className="text-danger">
               <FaSignOutAlt className="me-2" />

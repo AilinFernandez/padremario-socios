@@ -43,7 +43,7 @@ const Sidebar = ({ isOpen, onClose }) => {
     {
       path: '/dashboard',
       icon: <FaTachometerAlt />,
-      label: 'Dashboard',
+      label: 'Resumen',
       description: 'Vista general del sistema',
       permission: PERMISOS.DASHBOARD_VIEW
     },

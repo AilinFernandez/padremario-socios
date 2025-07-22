@@ -2,6 +2,15 @@
 
 .audit-container {
   padding: 20px;
+  margin-top: 80px;
+}
+
+.audit-title {
+  color: var(--primary-blue);
+  font-weight: 700;
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-sm);
+  margin-top: var(--spacing-md);
 }
 
 .audit-stats-card {

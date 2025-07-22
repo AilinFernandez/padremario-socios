@@ -294,7 +294,7 @@ const UserProfile = () => {
               <FaArrowLeft />
             </Button>
             <div>
-              <h2 className="mb-0">
+              <h2 className="user-profile-title mb-0">
                 <FaUser className="me-2" />
                 Perfil de Empleado
               </h2>

@@ -19,6 +19,7 @@ import UserProfile from './pages/Usuarios/UserProfile';
 import Auditoria from './pages/Auditoria/Auditoria';
 import Comunicaciones from './pages/Comunicaciones/Comunicaciones';
 import Register from './pages/Register';
+import Configuracion from './pages/Configuracion';
 
 // Importar estilos
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -191,6 +192,14 @@ const AppContent = () => {
           <ProtectedRoute requiredPermission={PERMISOS.SOCIOS_VIEW}>
             <MainLayout>
               <Comunicaciones />
+            </MainLayout>
+          </ProtectedRoute>
+        } />
+
+        <Route path="/configuracion" element={
+          <ProtectedRoute requiredPermission={PERMISOS.USERS_VIEW}>
+            <MainLayout>
+              <Configuracion />
             </MainLayout>
           </ProtectedRoute>
         } />

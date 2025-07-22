@@ -151,7 +151,7 @@ const NuevoSocio = () => {
   };
 
   return (
-    <Container fluid className="nuevo-socio-container">
+    <div className="nuevo-socio-container">
       <Row className="mb-4">
         <Col>
           <div className="d-flex justify-content-between align-items-center">
@@ -436,7 +436,7 @@ const NuevoSocio = () => {
           </Col>
         </Row>
       </Form>
-    </Container>
+    </div>
   );
 };
 

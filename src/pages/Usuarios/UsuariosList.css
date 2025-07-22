@@ -1,7 +1,6 @@
-.usuarios-container {
-  padding: var(--spacing-xl);
-  margin-top: 70px;
-  margin-left: 280px;
+.usuarios-list-container {
+  padding: var(--spacing-md) var(--spacing-xl) var(--spacing-xl) var(--spacing-md);
+  margin-top: 80px;
   min-height: calc(100vh - 70px);
   background-color: var(--light-gray);
 }
@@ -11,6 +10,7 @@
   font-weight: 700;
   font-size: var(--font-size-2xl);
   margin-bottom: var(--spacing-sm);
+  margin-top: var(--spacing-md);
 }
 
 .usuarios-subtitle {
@@ -21,14 +21,14 @@
 
 /* Responsive */
 @media (max-width: 991.98px) {
-  .usuarios-container {
-    margin-left: 0;
+  .usuarios-list-container {
+    padding-left: 0;
     padding: var(--spacing-md);
   }
 }
 
 @media (max-width: 767.98px) {
-  .usuarios-container {
+  .usuarios-list-container {
     padding: var(--spacing-sm);
   }
   

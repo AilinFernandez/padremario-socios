@@ -120,7 +120,7 @@ const SocioDetail = () => {
   }
 
   return (
-    <Container fluid className="socio-detail-container">
+    <div className="socio-detail-container">
       {/* Header */}
       <Row className="mb-4">
         <Col>
@@ -351,7 +351,7 @@ const SocioDetail = () => {
           </Col>
         </Row>
       )}
-    </Container>
+    </div>
   );
 };
 

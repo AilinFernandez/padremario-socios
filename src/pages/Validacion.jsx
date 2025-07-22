@@ -79,7 +79,7 @@ const Validacion = () => {
   };
 
   return (
-    <Container fluid className="validacion-container">
+    <div className="validacion-container">
       <Row className="mb-4">
         <Col>
           <h1 className="validacion-title">
@@ -87,7 +87,7 @@ const Validacion = () => {
             Validación Rápida
           </h1>
           <p className="validacion-subtitle">
-            Busque socios por DNI para verificar su estado y beneficios
+            Buscar y validar socios por DNI
           </p>
         </Col>
       </Row>
@@ -264,6 +264,19 @@ const Validacion = () => {
                     </div>
                   </Col>
                 </Row>
+
+                {/* Botón Limpiar debajo de la info del socio */}
+                <Row className="mt-4">
+                  <Col className="d-flex justify-content-end">
+                    <Button
+                      variant="outline-secondary"
+                      onClick={handleClear}
+                      className="btn-opm-secondary"
+                    >
+                      Limpiar
+                    </Button>
+                  </Col>
+                </Row>
               </Card.Body>
             </Card>
           )}
@@ -289,7 +302,7 @@ const Validacion = () => {
           )}
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 };
 
