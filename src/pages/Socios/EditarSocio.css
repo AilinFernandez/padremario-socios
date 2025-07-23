@@ -1,5 +1,6 @@
 .editar-socio-container {
   padding: var(--spacing-md) var(--spacing-xl) var(--spacing-xl) var(--spacing-md);
+  margin-top: 60px !important;
   min-height: calc(100vh - 70px);
   background-color: var(--light-gray);
 }

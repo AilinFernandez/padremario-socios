@@ -281,9 +281,9 @@ const UserProfile = () => {
   }
 
   return (
-    <Container fluid className="mt-4">
-      {/* Header */}
-      <Row className="mb-4">
+    <Container fluid className="user-profile-container">
+        {/* Header */}
+        <Row className="mb-4">
         <Col>
           <div className="d-flex align-items-center">
             <Button 
@@ -306,14 +306,14 @@ const UserProfile = () => {
 
       {/* Información del usuario */}
       <Row className="mb-4">
-        <Col md={4}>
+        <Col xs={12} md={4} className="mb-3">
           <Card>
             <Card.Header>
               <FaUser className="me-2" />
               Información Personal
             </Card.Header>
             <Card.Body>
-              <div className="user-info">
+              <div className="profile-user-info">
                 <div className="mb-3">
                   <strong>Nombre:</strong>
                   <p className="mb-1">
@@ -363,7 +363,7 @@ const UserProfile = () => {
           </Card>
         </Col>
         
-        <Col md={8}>
+        <Col xs={12} md={8} className="mb-3">
           <Card>
             <Card.Header>
               <FaChartLine className="me-2" />

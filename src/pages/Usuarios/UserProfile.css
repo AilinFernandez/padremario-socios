@@ -1,10 +1,10 @@
 /* Estilos para la página de Perfil de Usuario */
 
 .user-profile-container {
-  padding: var(--spacing-md) var(--spacing-xl) var(--spacing-xl) var(--spacing-md);
-  margin-left: 300px;
-  min-height: calc(100vh - 70px);
-  background-color: var(--light-gray);
+  padding: var(--spacing-md) var(--spacing-xl) var(--spacing-xl) var(--spacing-md) !important;
+  margin-top: 80px !important;
+  min-height: calc(100vh - 70px) !important;
+  background-color: var(--light-gray) !important;
 }
 
 .user-profile-title {
@@ -15,16 +15,16 @@
   margin-top: var(--spacing-md);
 }
 
-.user-info {
+.profile-user-info {
   font-size: 0.95rem;
 }
 
-.user-info strong {
+.profile-user-info strong {
   color: #495057;
   font-weight: 600;
 }
 
-.user-info p {
+.profile-user-info p {
   margin-bottom: 0.5rem;
   color: #6c757d;
 }
@@ -130,6 +130,20 @@
   
   .action-details {
     max-width: 150px;
+  }
+  
+  /* Asegurar que las columnas se muestren correctamente en móvil */
+  .user-profile-container .col-md-4,
+  .user-profile-container .col-md-8 {
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 1rem;
+  }
+  
+  /* Asegurar que las métricas se muestren en una sola fila en móvil */
+  .user-profile-container .col-md-3 {
+    width: 50% !important;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -256,4 +270,38 @@
 
 .action-distribution::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
+} 
+
+/* Reglas específicas para móvil */
+@media (max-width: 768px) {
+  /* Asegurar que todas las columnas sean visibles */
+  .user-profile-container .col-md-4,
+  .user-profile-container .col-md-8,
+  .user-profile-container .col-xs-12 {
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 1rem;
+  }
+  
+  /* Asegurar que las métricas se muestren en 2 columnas */
+  .user-profile-container .col-md-3 {
+    width: 50% !important;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Asegurar que las cards sean visibles */
+  .user-profile-container .card {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Forzar visibilidad de la información personal */
+  .user-profile-container .card:first-of-type {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
 } 
