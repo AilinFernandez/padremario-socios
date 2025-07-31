@@ -23,23 +23,6 @@ Sistema web para la gestión integral de socios de la Obra del Padre Mario (OPM)
 
 ## 👥 **Usuarios de Prueba Pre-cargados**
 
-### **Super Administrador:**
-- **Email:** `admin@opm.org`
-- **Contraseña:** `admin123`
-- **Rol:** Super Administrador
-- **Acceso:** Completo a todas las funcionalidades
-
-### **Administrador:**
-- **Email:** `gerente@opm.org`
-- **Contraseña:** `gerente123`
-- **Rol:** Administrador
-- **Acceso:** Gestión de socios y reportes
-
-### **Usuario Regular:**
-- **Email:** `usuario@opm.org`
-- **Contraseña:** `usuario123`
-- **Rol:** Usuario
-- **Acceso:** Consulta y validación
 
 ## 🔐 **Sistema de Roles y Permisos**
 
