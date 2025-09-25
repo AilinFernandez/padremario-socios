@@ -26,6 +26,7 @@ import {
 } from 'react-icons/fa';
 import { useComunicaciones } from '../../hooks/useComunicaciones';
 import { SECTORES_LABELS, ESTADOS_SOCIO_LABELS, BARRIOS } from '../../utils/constants';
+import { formatDateTime } from '../../utils/dateUtils';
 import './Comunicaciones.css';
 
 const Comunicaciones = () => {
@@ -125,18 +126,7 @@ const Comunicaciones = () => {
     }
   };
 
-  // Formatear fecha
-  const formatDate = (date) => {
-    if (!date) return 'N/A';
-    const d = date.toDate ? date.toDate() : new Date(date);
-    return d.toLocaleDateString('es-AR', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    });
-  };
+  // Formatear fecha usando utilidad
 
   // Obtener badge de tipo
   const getTipoBadge = (tipo) => {
@@ -257,7 +247,7 @@ const Comunicaciones = () => {
                             <td>{getEstadoBadge(comunicacion.estado)}</td>
                             <td>
                               <small className="text-muted">
-                                {formatDate(comunicacion.fechaCreacion)}
+                                {formatDateTime(comunicacion.fechaCreacion)}
                               </small>
                             </td>
                             <td>

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSocios } from '../../hooks/useSocios';
 import { useAudit } from '../../hooks/useAudit';
 import { SECTORES_LABELS, ESTADOS_SOCIO_LABELS, SECTORES, BARRIOS } from '../../utils/constants';
+import { formatDate } from '../../utils/dateUtils';
 import { 
   FaUsers, 
   FaSearch, 
@@ -123,13 +124,6 @@ const SociosList = () => {
     });
   };
 
-  const formatDate = (date) => {
-    return new Date(date).toLocaleDateString('es-AR', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    });
-  };
 
   const getEstadoBadge = (estado) => {
     const variant = {

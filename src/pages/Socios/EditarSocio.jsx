@@ -24,7 +24,7 @@ import EtiquetaBadge from '../../components/EtiquetaBadge';
 const EditarSocio = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { getSocioById, actualizarSocio, loading, error } = useSocios();
+  const { getSocioById, actualizarSocio, buscarPorDNI, loading, error } = useSocios();
   
   const [formData, setFormData] = useState({
     nombre: '',
@@ -115,15 +115,51 @@ const EditarSocio = () => {
   };
 
   const handleEtiquetaChange = (etiqueta) => {
-    setFormData(prev => ({
-      ...prev,
-      etiquetas: prev.etiquetas.includes(etiqueta)
+    setFormData(prev => {
+      const etiquetas = prev.etiquetas.includes(etiqueta)
         ? prev.etiquetas.filter(e => e !== etiqueta)
-        : [...prev.etiquetas, etiqueta]
-    }));
+        : [...prev.etiquetas, etiqueta];
+      
+      // Encontrar el sector al que pertenece esta etiqueta
+      let sectores = [...prev.sectores];
+      
+      // Si se está agregando la etiqueta
+      if (!prev.etiquetas.includes(etiqueta)) {
+        // Buscar el sector que contiene esta etiqueta
+        for (const [sectorKey, etiquetasSector] of Object.entries(ETIQUETAS_POR_SECTOR)) {
+          if (etiquetasSector.includes(etiqueta)) {
+            if (!sectores.includes(sectorKey)) {
+              sectores.push(sectorKey);
+            }
+            break;
+          }
+        }
+      }
+      // Si se está removiendo la etiqueta
+      else {
+        // Verificar si hay otras etiquetas del mismo sector
+        for (const [sectorKey, etiquetasSector] of Object.entries(ETIQUETAS_POR_SECTOR)) {
+          if (etiquetasSector.includes(etiqueta)) {
+            // Verificar si hay otras etiquetas de este sector seleccionadas
+            const otrasEtiquetasDelSector = etiquetasSector.filter(e => e !== etiqueta && etiquetas.includes(e));
+            if (otrasEtiquetasDelSector.length === 0) {
+              // Si no hay otras etiquetas del sector, remover el sector
+              sectores = sectores.filter(s => s !== sectorKey);
+            }
+            break;
+          }
+        }
+      }
+      
+      return {
+        ...prev,
+        etiquetas,
+        sectores
+      };
+    });
   };
 
-  const validateForm = () => {
+  const validateForm = async () => {
     const newErrors = {};
 
     if (!formData.nombre.trim()) {
@@ -138,6 +174,12 @@ const EditarSocio = () => {
       newErrors.dni = 'El DNI es obligatorio';
     } else if (formData.dni.length < 7) {
       newErrors.dni = 'El DNI debe tener al menos 7 dígitos';
+    } else {
+      // Verificar si el DNI ya existe en otro socio
+      const socioExistente = await buscarPorDNI(formData.dni);
+      if (socioExistente && socioExistente.id !== id) {
+        newErrors.dni = 'Ya existe otro socio con este DNI';
+      }
     }
 
     if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
@@ -155,7 +197,7 @@ const EditarSocio = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (!validateForm()) {
+    if (!(await validateForm())) {
       return;
     }
 

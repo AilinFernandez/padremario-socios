@@ -173,6 +173,28 @@ export const useSocios = () => {
     }
   };
 
+  // Actualizar solo la última actividad
+  const actualizarUltimaActividad = async (id) => {
+    try {
+      const docRef = doc(db, 'socios', id);
+      await updateDoc(docRef, {
+        ultimaActividad: new Date()
+      });
+      
+      // Actualizar en la lista local
+      setSocios(prev => 
+        prev.map(socio => 
+          socio.id === id 
+            ? { ...socio, ultimaActividad: new Date() }
+            : socio
+        )
+      );
+    } catch (err) {
+      console.error('Error al actualizar última actividad:', err);
+      // No lanzamos el error para que no interrumpa la operación principal
+    }
+  };
+
   // Eliminar socio
   const eliminarSocio = async (id) => {
     setLoading(true);
@@ -218,6 +240,7 @@ export const useSocios = () => {
     buscarPorDNI,
     crearSocio,
     actualizarSocio,
+    actualizarUltimaActividad,
     eliminarSocio,
     getEstadisticas
   };

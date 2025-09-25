@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Form, Button, Alert, Badge, Spinner } from '
 import { useSocios } from '../hooks/useSocios';
 import { useAudit } from '../hooks/useAudit';
 import { SECTORES_LABELS, ESTADOS_SOCIO_LABELS } from '../utils/constants';
+import { formatDate } from '../utils/dateUtils';
 import { FaSearch, FaUser, FaIdCard, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 import './Validacion.css';
 
@@ -13,7 +14,7 @@ const Validacion = () => {
   const [error, setError] = useState('');
   const [searched, setSearched] = useState(false);
 
-  const { buscarPorDNI } = useSocios();
+  const { buscarPorDNI, actualizarUltimaActividad } = useSocios();
   const { logSearch, logSocioAction } = useAudit();
 
   const handleSearch = async (e) => {
@@ -37,6 +38,8 @@ const Validacion = () => {
       if (resultado) {
         await logSearch('validacion', dni, {}, 1);
         await logSocioAction('VIEW_SOCIO_DETAILS', resultado.id, `${resultado.nombre} ${resultado.apellido}`, { dni });
+        // Actualizar última actividad
+        await actualizarUltimaActividad(resultado.id);
       } else {
         await logSearch('validacion', dni, {}, 0);
         setError('No se encontró ningún socio con ese DNI');
@@ -70,13 +73,6 @@ const Validacion = () => {
     );
   };
 
-  const formatDate = (date) => {
-    return new Date(date).toLocaleDateString('es-AR', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    });
-  };
 
   return (
     <div className="validacion-container">

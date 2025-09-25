@@ -6,7 +6,6 @@ export const SECTORES = {
   TERCERA_EDAD: 'tercera_edad',
   DEPORTES: 'deportes',
   DISCAPACIDAD: 'discapacidad',
-  CULTURAL: 'cultural',
   COMUNIDAD: 'comunidad'
 };
 
@@ -16,7 +15,6 @@ export const SECTORES_LABELS = {
   [SECTORES.TERCERA_EDAD]: 'Tercera Edad',
   [SECTORES.DEPORTES]: 'Deportes',
   [SECTORES.DISCAPACIDAD]: 'Discapacidad',
-  [SECTORES.CULTURAL]: 'Cultural',
   [SECTORES.COMUNIDAD]: 'Comunidad'
 };
 
@@ -59,6 +57,8 @@ export const ETIQUETAS_TERCERA_EDAD = [
 export const ETIQUETAS_DEPORTES = [
   'Fútbol',
   'Natación',
+  'Voley',
+  'Jockey',
   'Polideportivo',
   'ESD Alfredo Di Stefano'
 ];
@@ -70,17 +70,13 @@ export const ETIQUETAS_DISCAPACIDAD = [
   'Programa Ágora'
 ];
 
-export const ETIQUETAS_CULTURAL = [
-  'Plaza de Artes y Oficios',
-  'Actividades Culturales',
-  'Eventos'
-];
-
 export const ETIQUETAS_COMUNIDAD = [
   'Centro La Huella',
   'Padrinazgo',
-  'Programa unoXuno',
-  'Voluntariado'
+  'Voluntariado',
+  'Santeria',
+  'Retoño',
+  'Feria'
 ];
 
 export const ETIQUETAS_POR_SECTOR = {
@@ -89,17 +85,18 @@ export const ETIQUETAS_POR_SECTOR = {
   [SECTORES.TERCERA_EDAD]: ETIQUETAS_TERCERA_EDAD,
   [SECTORES.DEPORTES]: ETIQUETAS_DEPORTES,
   [SECTORES.DISCAPACIDAD]: ETIQUETAS_DISCAPACIDAD,
-  [SECTORES.CULTURAL]: ETIQUETAS_CULTURAL,
   [SECTORES.COMUNIDAD]: ETIQUETAS_COMUNIDAD
 };
 
 export const ORIGENES_CONTACTO = [
-  'Recomendación',
-  'Redes Sociales',
-  'Página Web',
-  'Volante',
-  'Evento',
-  'Otro'
+  'Santeria',
+  'Retoño',
+  'Comunidad',
+  'Feria',
+  'Amigos',
+  'Payo',
+  'Polideportivo',
+  'Policonsultorio'
 ];
 
 export const VINCULOS_FAMILIARES = [
@@ -135,6 +132,7 @@ export const BARRIOS = [
   'Aldo Bonzi',
   'Ciudad Jardín',
   'Villa Fiorito',
+  'Virrey del Pino',
   'Otro'
 ];
 
@@ -144,7 +142,6 @@ export const SECTOR_COLORS = {
   [SECTORES.TERCERA_EDAD]: 'bg-tercera-edad', // custom
   [SECTORES.DEPORTES]: 'bg-warning',
   [SECTORES.DISCAPACIDAD]: 'bg-info',
-  [SECTORES.CULTURAL]: 'bg-cultural', // custom
   [SECTORES.COMUNIDAD]: 'bg-secondary'
 };
 

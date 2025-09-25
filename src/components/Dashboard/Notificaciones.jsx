@@ -10,6 +10,7 @@ import {
   FaUserTimes,
   FaCalendarAlt
 } from 'react-icons/fa';
+import { formatDateTime } from '../../utils/dateUtils';
 import './Notificaciones.css';
 
 const Notificaciones = () => {
@@ -122,14 +123,6 @@ const Notificaciones = () => {
     return colores[tipo] || 'secondary';
   };
 
-  const formatDate = (date) => {
-    return new Date(date).toLocaleDateString('es-AR', {
-      day: '2-digit',
-      month: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit'
-    });
-  };
 
   if (notificaciones.length === 0) {
     return (
@@ -188,7 +181,7 @@ const Notificaciones = () => {
                     </div>
                     <div className="notification-time">
                       <small className="text-muted">
-                        {formatDate(notif.fecha)}
+                        {formatDateTime(notif.fecha)}
                       </small>
                     </div>
                   </div>

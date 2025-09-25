@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Form, Button, Table, Badge, Spinner, Tabs, Tab } from 'react-bootstrap';
 import { useSocios } from '../hooks/useSocios';
 import { SECTORES_LABELS, ESTADOS_SOCIO_LABELS, SECTORES, BARRIOS } from '../utils/constants';
+import { formatDate } from '../utils/dateUtils';
 import { exportarPDF, exportarExcel, generarReporteMensual } from '../services/exportService';
 import EstadisticasChart from '../components/Charts/EstadisticasChart';
 import { 
@@ -181,13 +182,6 @@ const Reportes = () => {
       .slice(0, 10); // Top 10 barrios
   };
 
-  const formatDate = (date) => {
-    return new Date(date).toLocaleDateString('es-AR', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    });
-  };
 
   const getEstadoBadge = (estado) => {
     const variant = {

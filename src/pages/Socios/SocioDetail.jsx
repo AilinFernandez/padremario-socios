@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Badge, Button, Spinner, Alert } from 'react-
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSocios } from '../../hooks/useSocios';
 import { SECTORES_LABELS, ESTADOS_SOCIO_LABELS, SECTOR_COLORS } from '../../utils/constants';
+import { formatDate, calcularEdad } from '../../utils/dateUtils';
 import { 
   FaUser, 
   FaEdit, 
@@ -54,13 +55,6 @@ const SocioDetail = () => {
     }
   };
 
-  const formatDate = (date) => {
-    return new Date(date).toLocaleDateString('es-AR', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    });
-  };
 
   const getEstadoBadge = (estado) => {
     let colorClass = 'text-secondary border-secondary';
@@ -73,17 +67,6 @@ const SocioDetail = () => {
     );
   };
 
-  const calcularEdad = (fechaNacimiento) => {
-    if (!fechaNacimiento) return null;
-    const hoy = new Date();
-    const nacimiento = new Date(fechaNacimiento);
-    let edad = hoy.getFullYear() - nacimiento.getFullYear();
-    const mes = hoy.getMonth() - nacimiento.getMonth();
-    if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
-      edad--;
-    }
-    return edad;
-  };
 
   if (loading) {
     return (

@@ -15,6 +15,7 @@ import {
   FaChartBar
 } from 'react-icons/fa';
 import { SECTORES_LABELS, ESTADOS_SOCIO_LABELS } from '../utils/constants';
+import { formatDate } from '../utils/dateUtils';
 import './Dashboard.css';
 
 const Dashboard = () => {
@@ -62,13 +63,6 @@ const Dashboard = () => {
       .slice(0, 5);
   };
 
-  const formatDate = (date) => {
-    return new Date(date).toLocaleDateString('es-AR', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    });
-  };
 
   const getEstadoBadge = (estado) => {
     const variant = {
