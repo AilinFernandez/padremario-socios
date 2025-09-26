@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Card, Form, Button, Alert, Spinner } from 'react-bootstrap';
+import { Container, Row, Col, Card, Form, Button, Alert, Spinner, Tabs, Tab } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useSocios } from '../../hooks/useSocios';
 import { useAudit } from '../../hooks/useAudit';
@@ -16,10 +16,13 @@ import {
   FaUserPlus, 
   FaSave, 
   FaTimes,
-  FaCheck
+  FaCheck,
+  FaFileAlt,
+  FaFileExcel
 } from 'react-icons/fa';
 import './NuevoSocio.css';
 import EtiquetaBadge from '../../components/EtiquetaBadge';
+import ImportarSocios from '../../components/ImportarSocios/ImportarSocios';
 
 const NuevoSocio = () => {
   const navigate = useNavigate();
@@ -43,6 +46,7 @@ const NuevoSocio = () => {
   
   const [errors, setErrors] = useState({});
   const [saving, setSaving] = useState(false);
+  const [activeTab, setActiveTab] = useState('formulario'); // 'formulario' o 'importar'
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
@@ -192,12 +196,16 @@ const NuevoSocio = () => {
     navigate('/socios');
   };
 
+  const handleImportarCompleto = () => {
+    // Cuando se completa la importación, volver a la lista de socios
+    navigate('/socios');
+  };
+
   return (
     <div className="nuevo-socio-container">
       <Row className="mb-4">
         <Col>
-          <div className="d-flex justify-content-between align-items-center">
-            <div>
+            <div className="text-center">
               <h1 className="nuevo-socio-title">
                 <FaUserPlus className="me-2" />
                 Nuevo Socio
@@ -206,46 +214,26 @@ const NuevoSocio = () => {
                 Complete la información para registrar un nuevo socio
               </p>
             </div>
-            <div className="d-flex gap-2">
-              <Button
-                variant="outline-secondary"
-                onClick={handleCancel}
-                className="btn-opm-secondary"
-              >
-                <FaTimes className="me-2" />
-                Cancelar
-              </Button>
-              <Button
-                variant="primary"
-                onClick={handleSubmit}
-                disabled={saving || loading}
-                className="btn-opm-primary"
-              >
-                {saving ? (
-                  <>
-                    <Spinner
-                      as="span"
-                      animation="border"
-                      size="sm"
-                      role="status"
-                      aria-hidden="true"
-                      className="me-2"
-                    />
-                    Guardando...
-                  </>
-                ) : (
-                  <>
-                    <FaSave className="me-2" />
-                    Guardar Socio
-                  </>
-                )}
-              </Button>
-            </div>
-          </div>
         </Col>
       </Row>
 
-      <Form onSubmit={handleSubmit}>
+      {/* Pestañas */}
+      <Tabs
+        activeKey={activeTab}
+        onSelect={(k) => setActiveTab(k)}
+        className="mb-4"
+        id="nuevo-socio-tabs"
+      >
+        <Tab
+          eventKey="formulario"
+          title={
+            <>
+              <FaFileAlt className="me-2" />
+              Formulario Manual
+            </>
+          }
+        >
+          <Form onSubmit={handleSubmit}>
         {errors.general && (
           <Alert variant="danger" className="mb-4">
             {errors.general}
@@ -477,7 +465,68 @@ const NuevoSocio = () => {
             </Card>
           </Col>
         </Row>
+
+        {/* Botones de acción */}
+        <Row className="mt-4">
+          <Col>
+            <Card className="opm-card">
+              <Card.Body>
+                <div className="d-flex justify-content-center gap-3">
+                  <Button
+                    variant="outline-secondary"
+                    onClick={handleCancel}
+                    className="btn-opm-secondary"
+                    size="lg"
+                  >
+                    <FaTimes className="me-2" />
+                    Cancelar
+                  </Button>
+                  <Button
+                    variant="primary"
+                    onClick={handleSubmit}
+                    disabled={saving || loading}
+                    className="btn-opm-primary"
+                    size="lg"
+                  >
+                    {saving ? (
+                      <>
+                        <Spinner
+                          as="span"
+                          animation="border"
+                          size="sm"
+                          role="status"
+                          aria-hidden="true"
+                          className="me-2"
+                        />
+                        Guardando...
+                      </>
+                    ) : (
+                      <>
+                        <FaSave className="me-2" />
+                        Guardar Socio
+                      </>
+                    )}
+                  </Button>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
       </Form>
+        </Tab>
+        
+        <Tab
+          eventKey="importar"
+          title={
+            <>
+              <FaFileExcel className="me-2" />
+              Importar desde Excel
+            </>
+          }
+        >
+          <ImportarSocios onImportarCompleto={handleImportarCompleto} />
+        </Tab>
+      </Tabs>
     </div>
   );
 };
